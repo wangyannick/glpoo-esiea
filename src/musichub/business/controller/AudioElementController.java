@@ -26,9 +26,13 @@ public class AudioElementController {
 		elements = new LinkedList<AudioElement>();
 		this.loadElements();
 	}
-	
+
 	public List<AudioElement> getAudioElements() {
 		return elements;
+	}
+
+	public Iterator<AudioElement> elements() {
+		return elements.listIterator();
 	}
 
 	public void addElement(AudioElement element) {

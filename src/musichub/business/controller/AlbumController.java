@@ -60,7 +60,7 @@ public class AlbumController {
 		albums.add(album);
 	}
 
-	public void addElementToAlbum(String elementTitle, String albumTitle, AudioElement elements[])
+	public void addElementToAlbum(String elementTitle, String albumTitle, List<AudioElement> elements)
 			throws NoAlbumFoundException, NoElementFoundException {
 		Album theAlbum = null;
 		int i = 0;
