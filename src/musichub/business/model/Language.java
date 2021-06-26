@@ -1,4 +1,4 @@
-package musichub.business;
+package musichub.business.model;
 
 public enum Language {
 	FRENCH ("french"), ENGLISH ("english"), ITALIAN ("italian"), SPANISH ("spanish"), GERMAN("german");

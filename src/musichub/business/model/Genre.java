@@ -1,4 +1,4 @@
-package musichub.business;
+package musichub.business.model;
 
 public enum Genre {
 	JAZZ ("jazz"), CLASSIC ("classic"), HIPHOP ("hiphop"), ROCK ("rock"), POP("pop"), RAP("rap");
