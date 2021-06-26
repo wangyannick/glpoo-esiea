@@ -1,4 +1,4 @@
-package musichub.business;
+package musichub.business.model;
 
 import java.util.*;
 import org.w3c.dom.*;

@@ -1,6 +1,5 @@
-package musichub.business;
+package musichub.business.model;
 
-import java.io.*;
 import org.w3c.dom.*;
 
 public class AudioBook extends AudioElement {
