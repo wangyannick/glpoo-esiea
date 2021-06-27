@@ -36,6 +36,11 @@ public class AudioElementController {
 		return elements.listIterator();
 	}
 	
+	/**
+	 * function to read an element
+	 * @param elementTitle
+	 * @return
+	 */
 	public String readElement(String elementTitle) {
 		AudioElement theElement = null;
 		int i = 0;
@@ -55,6 +60,11 @@ public class AudioElementController {
 		}	
 	}
 	
+	/**
+	 * function that allows the user to rate the element
+	 * @param elementTitle
+	 * @param val
+	 */
 	public void rateElement(String elementTitle, String val) {
 		AudioElement theElement = null;
 		int i = 0;
@@ -73,6 +83,10 @@ public class AudioElementController {
 		}	
 	}
 
+	/**
+	 * function to add an element
+	 * @param element
+	 */
 	public void addElement(AudioElement element) {
 		elements.add(element);
 	}
@@ -105,6 +119,9 @@ public class AudioElementController {
 		}
 	}
 
+	/**
+	 * function to save the elements
+	 */
 	public void saveElements() {
 		Document document = xmlHandler.createXMLDocument();
 		if (document == null)

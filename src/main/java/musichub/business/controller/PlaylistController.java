@@ -28,14 +28,27 @@ public class PlaylistController {
 		this.loadPlaylists();
 	}
 
+	/**
+	 * function to get the playlists
+	 * @return
+	 */
 	public List<PlayList> getPlaylists() {
 		return playlists;
 	}
 
+	/**
+	 * function to add a playlist
+	 * @param playlist
+	 */
 	public void addPlaylist(PlayList playlist) {
 		playlists.add(playlist);
 	}
 
+	/**
+	 * function to delete a playlist
+	 * @param playListTitle
+	 * @throws NoPlayListFoundException
+	 */
 	public void deletePlayList(String playListTitle) throws NoPlayListFoundException {
 
 		PlayList thePlayList = null;
@@ -57,6 +70,14 @@ public class PlaylistController {
 		return playlists.listIterator();
 	}
 
+	/**
+	 * function that allows the user to add an element to the playlist
+	 * @param elementTitle
+	 * @param playListTitle
+	 * @param elements
+	 * @throws NoPlayListFoundException
+	 * @throws NoElementFoundException
+	 */
 	public void addElementToPlayList(String elementTitle, String playListTitle, List<AudioElement> elements)
 			throws NoPlayListFoundException, NoElementFoundException {
 		PlayList thePlaylist = null;
@@ -91,6 +112,9 @@ public class PlaylistController {
 
 	}
 
+	/**
+	 * function to load the different playlists
+	 */
 	private void loadPlaylists() {
 		NodeList playlistNodes = xmlHandler.parseXMLFile(PLAYLISTS_FILE_PATH);
 		if (playlistNodes == null)
