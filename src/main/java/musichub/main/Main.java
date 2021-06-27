@@ -242,8 +242,7 @@ public class Main {
 				String bContent = scan.nextLine();
 				System.out.println("AudioBook language (french, english, italian, spanish, german)");
 				String bLanguage = scan.nextLine();
-				String bRate = "";
-				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory, bRate);
+				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
 				theHub.addElement(b);
 				SingletonFileLogger.getInstance().write(Level.INFO, "Audiobook " + bTitle + " created.");
 				System.out.println("Audiobook created! New element list: ");
