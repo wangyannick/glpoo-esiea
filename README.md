@@ -16,9 +16,9 @@ Le but du projet est de faire évoluer l’application de gestion de contenus mu
 - Eclipse
 - Github
 Lancer la commande suivante pour clone le répertoire : 
-
+```
     git clone https://github.com/wangyannick/glpoo-esiea.git
-
+```
 ## Principales fonctionnalités du projet
 
 - Créer une musique
