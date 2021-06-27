@@ -1,1 +1,1 @@
-java -classpath bin musichub.main.Main
+mvn compile && mvn package && cd target && java -jar "glpoo-esiea-0.0.1-SNAPSHOT.jar"
