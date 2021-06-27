@@ -37,6 +37,9 @@ public class AlbumController {
 		return albums.listIterator();
 	}
 
+	/**
+	 * function to load the albums
+	 */
 	private void loadAlbums() {
 		NodeList albumNodes = xmlHandler.parseXMLFile(ALBUMS_FILE_PATH);
 		if (albumNodes == null)
@@ -56,10 +59,22 @@ public class AlbumController {
 		}
 	}
 
+	/**
+	 * function to add an album
+	 * @param album
+	 */
 	public void addAlbum(Album album) {
 		albums.add(album);
 	}
 
+	/**
+	 * function to add an element to an album
+	 * @param elementTitle
+	 * @param albumTitle
+	 * @param elements
+	 * @throws NoAlbumFoundException
+	 * @throws NoElementFoundException
+	 */
 	public void addElementToAlbum(String elementTitle, String albumTitle, List<AudioElement> elements)
 			throws NoAlbumFoundException, NoElementFoundException {
 		Album theAlbum = null;
@@ -92,6 +107,9 @@ public class AlbumController {
 
 	}
 
+	/**
+	 * function to save an album
+	 */
 	public void saveAlbums() {
 		Document document = xmlHandler.createXMLDocument();
 		if (document == null)

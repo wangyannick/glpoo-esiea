@@ -1,5 +1,10 @@
 package main.java.musichub.business.model;
 
+/**
+ * enumeration for genre
+ * @author ali
+ *
+ */
 public enum Genre {
 	JAZZ ("jazz"), CLASSIC ("classic"), HIPHOP ("hiphop"), ROCK ("rock"), POP("pop"), RAP("rap");
 	private String genre;

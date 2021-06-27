@@ -1,5 +1,10 @@
 package main.java.musichub.logger;
 
+/**
+ * enumdration for the different levels
+ * @author ali
+ *
+ */
 public enum Level {
 	ERROR("ERROR"), WARNING("WARNING"), INFO("INFO"), DEBUG("DEBUG");
 

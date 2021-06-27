@@ -26,6 +26,9 @@ class AlbumTest {
 		assertEquals(AlbumController.ALBUMS_FILE_PATH, System.getProperty("user.dir") + "\\files\\albums.xml");
 	}
 
+	/**
+	 * test add album
+	 */
 	@Test
 	void addingAlbum() {
 		assertEquals(3, albumController.getAlbums().size());
@@ -34,6 +37,11 @@ class AlbumTest {
 		assertEquals(4, albumController.getAlbums().size());
 	}
 
+	/**
+	 * test add element to an album
+	 * @throws NoAlbumFoundException
+	 * @throws NoElementFoundException
+	 */
 	@Test
 	void addingElementToAlbum() throws NoAlbumFoundException, NoElementFoundException {
 		assertEquals(2, albumView

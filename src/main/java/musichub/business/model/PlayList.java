@@ -8,23 +8,41 @@ public class PlayList {
 	private UUID uuid;
 	private ArrayList<UUID> elementUUIDs;
 
+	/**
+	 * constructor for playlist
+	 * @param title
+	 * @param id
+	 * @param elementUUIDs
+	 */
 	public PlayList (String title, String id, ArrayList<UUID> elementUUIDs) {
 		this.title = title;
 		this.uuid = UUID.fromString(id);
 		this.elementUUIDs = elementUUIDs;
 	}
 	
+	/**
+	 * constructor for playlist
+	 * @param title
+	 */
 	public PlayList (String title) {
 		this.title = title;
 		this.uuid = UUID.randomUUID();
 		this.elementUUIDs = new ArrayList<UUID>();
 	}
 	
+	/**
+	 * function to add an element
+	 * @param element
+	 */
 	public void addElement (UUID element)
 	{
 		elementUUIDs.add(element);
 	}
 	
+	/**
+	 * function to get all the elements
+	 * @return
+	 */
 	public ArrayList<UUID> getElements() {
 		return elementUUIDs;
 	}
@@ -74,6 +92,11 @@ public class PlayList {
 	}
 	
 	
+	/**
+	 * function create an XML element
+	 * @param document
+	 * @param parentElement
+	 */
 	public void createXMLElement(Document document, Element parentElement)
 	{
 		Element playlistElement = document.createElement("playlist");

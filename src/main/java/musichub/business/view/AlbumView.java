@@ -14,6 +14,14 @@ import main.java.musichub.util.SortByGenre;
 
 public class AlbumView {
 
+	/**
+	 * function to get the songs of an album
+	 * @param albumTitle
+	 * @param albums
+	 * @param elements
+	 * @return
+	 * @throws NoAlbumFoundException
+	 */
 	public List<AudioElement> getAlbumSongs(String albumTitle, List<Album> albums, List<AudioElement> elements)
 			throws NoAlbumFoundException {
 		Album theAlbum = null;
@@ -38,6 +46,11 @@ public class AlbumView {
 		return songsInAlbum;
 	}
 
+	/**
+	 * function to sort the album titles by date
+	 * @param albums
+	 * @return
+	 */
 	public String getAlbumsTitlesSortedByDate(List<Album> albums) {
 		StringBuffer titleList = new StringBuffer();
 		Collections.sort(albums, new SortByDate());
@@ -46,6 +59,14 @@ public class AlbumView {
 		return titleList.toString();
 	}
 
+	/**
+	 * function to sort the album songs by genre
+	 * @param albumTitle
+	 * @param albums
+	 * @param elements
+	 * @return
+	 * @throws NoAlbumFoundException
+	 */
 	public List<Song> getAlbumSongsSortedByGenre(String albumTitle, List<Album> albums, List<AudioElement> elements)
 			throws NoAlbumFoundException {
 		Album theAlbum = null;

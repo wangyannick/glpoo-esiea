@@ -370,6 +370,9 @@ public class Main {
 		scan.close();
 	}
 
+	/**
+	 * function to print the available commands
+	 */
 	private static void printAvailableCommands() {
 		System.out.println("r: listen to a music");
 		System.out.println("n: create a playlist with a specific genre");

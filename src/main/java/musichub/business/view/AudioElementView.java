@@ -10,6 +10,11 @@ import main.java.musichub.util.SortByAuthor;
 
 public class AudioElementView {
 
+	/**
+	 * function to get the audiobook title sorted by author
+	 * @param elements
+	 * @return
+	 */
 	public String getAudiobooksTitlesSortedByAuthor(List<AudioElement> elements) {
 		StringBuffer titleList = new StringBuffer();
 		List<AudioElement> audioBookList = new ArrayList<AudioElement>();
