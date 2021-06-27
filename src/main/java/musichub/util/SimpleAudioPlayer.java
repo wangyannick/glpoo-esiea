@@ -12,6 +12,13 @@ import main.java.musichub.logger.SingletonFileLogger;
 
 public class SimpleAudioPlayer {
 
+	/**
+	 * function to read audio files
+	 * @param filePath
+	 * @throws UnsupportedAudioFileException
+	 * @throws IOException
+	 * @throws LineUnavailableException
+	 */
 	public void readAudioFile(String filePath)throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		Scanner scanner = new Scanner(System.in);
 
