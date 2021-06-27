@@ -7,7 +7,13 @@ import musichub.business.model.AudioElement;
 import musichub.business.model.PlayList;
 import musichub.business.model.Song;
 
+import musichub.util.*;
+
+import java.io.IOException;
 import java.util.*;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -20,6 +26,7 @@ public class Main {
 		String choice = scan.nextLine();
 
 		String albumTitle = null;
+		String musicTitle = null;
 
 		if (choice.length() == 0)
 			System.exit(0);
@@ -27,6 +34,27 @@ public class Main {
 		while (choice.charAt(0) != 'q') {
 			switch (choice.charAt(0)) {
 			case 'h':
+				printAvailableCommands();
+				choice = scan.nextLine();
+				break;
+			case 'r':
+				//On rentre la musique qu'on veut jouer
+				System.out.println("Choose the music you want to play");
+				musicTitle = scan.nextLine();
+				try {
+					theHub.readElement(musicTitle);
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Titre invalide" + e.getMessage());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				// une fois musique finie demander de la noter ici
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
@@ -243,6 +271,7 @@ public class Main {
 	}
 
 	private static void printAvailableCommands() {
+		System.out.println("r: listen to a music");
 		System.out.println("t: display the album titles, ordered by date");
 		System.out.println("g: display songs of an album, ordered by genre");
 		System.out.println("d: display songs of an album");

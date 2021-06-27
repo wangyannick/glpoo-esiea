@@ -9,6 +9,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import musichub.business.model.Album;
 import musichub.business.model.AudioBook;
 import musichub.business.model.AudioElement;
 import musichub.business.model.Song;
@@ -33,6 +34,20 @@ public class AudioElementController {
 
 	public Iterator<AudioElement> elements() {
 		return elements.listIterator();
+	}
+	
+	public String readElement(String elementTitle) {
+		AudioElement theElement = null;
+		int i = 0;
+		boolean found = false;
+		for (i = 0; i < elements.size(); i++) {
+			if (elements.get(i).getTitle().toLowerCase().equals(elementTitle.toLowerCase())) {
+				theElement = elements.get(i);
+				found = true;
+				break;
+			}
+		}
+		return theElement.getContent();
 	}
 
 	public void addElement(AudioElement element) {
