@@ -89,7 +89,6 @@ public class AlbumController {
 				throw new NoElementFoundException("Element " + elementTitle + " not found!");
 		} else
 			throw new NoAlbumFoundException("Album " + albumTitle + " not found!");
-
 	}
 
 	public void saveAlbums() {
