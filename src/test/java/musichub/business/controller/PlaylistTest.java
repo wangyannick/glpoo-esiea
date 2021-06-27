@@ -12,6 +12,9 @@ class PlaylistTest {
 	PlaylistController playlistController = new PlaylistController();
 	PlaylistView playlistView = new PlaylistView();
 
+	/**
+	 * test directory
+	 */
 	@Test
 	void testingDir() {
 		assertEquals(PlaylistController.DIR, System.getProperty("user.dir"));

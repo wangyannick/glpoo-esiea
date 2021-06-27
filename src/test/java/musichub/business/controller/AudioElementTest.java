@@ -12,6 +12,9 @@ class AudioElementTest {
 	AudioElementController audioElementController = new AudioElementController();
 	AudioElementView audioElementView = new AudioElementView();
 
+	/**
+	 * test the directory of the audio file
+	 */
 	@Test
 	void testingDir() {
 		assertEquals(AudioElementController.DIR, System.getProperty("user.dir"));
