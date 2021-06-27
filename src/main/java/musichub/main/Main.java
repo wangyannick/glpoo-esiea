@@ -160,8 +160,7 @@ public class Main {
 				int length = Integer.parseInt(scan.nextLine());
 				System.out.println("Song content: ");
 				String content = scan.nextLine();
-				String rate = "";
-				Song s = new Song(title, artist, length, content, genre, rate);
+				Song s = new Song(title, artist, length, content, genre);
 				theHub.addElement(s);
 				System.out.println("New element list: ");
 				Iterator<AudioElement> it = theHub.elements();
@@ -243,8 +242,7 @@ public class Main {
 				String bContent = scan.nextLine();
 				System.out.println("AudioBook language (french, english, italian, spanish, german)");
 				String bLanguage = scan.nextLine();
-				String bRate = "";
-				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory, bRate);
+				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
 				theHub.addElement(b);
 				SingletonFileLogger.getInstance().write(Level.INFO, "Audiobook " + bTitle + " created.");
 				System.out.println("Audiobook created! New element list: ");
