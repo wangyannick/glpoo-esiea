@@ -17,7 +17,7 @@ public class SingletonFileLogger implements ILogger {
 	}
 
 	private static final String DIR = System.getProperty("user.dir");
-	private static final String LOGS_FILE_PATH = DIR + "\\log.txt";
+	private static final String LOGS_FILE_PATH = DIR + "\\files\\log.txt";
 
 	public void write(Level l, String error) {
 		writeToFile(l, error, LOGS_FILE_PATH);
