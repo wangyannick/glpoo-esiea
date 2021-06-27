@@ -9,21 +9,24 @@ public abstract class AudioElement {
 	protected int    	lengthInSeconds;
 	protected UUID    	uuid;
 	protected String	content;
+	protected String 	grade;
 	
-	public AudioElement (String title, String artist, int lengthInSeconds, String id, String content) {
+	public AudioElement (String title, String artist, int lengthInSeconds, String id, String content, String grade) {
 		this.title = title;
 		this.artist = artist;
 		this.lengthInSeconds = lengthInSeconds;
 		this.uuid = UUID.fromString(id);
 		this.content = content;
+		this.grade = grade;
 	}
 
-	public AudioElement (String title, String artist, int lengthInSeconds, String content) {
+	public AudioElement (String title, String artist, int lengthInSeconds, String content, String grade) {
 		this.title = title;
 		this.artist = artist;
 		this.lengthInSeconds = lengthInSeconds;
 		this.content = content;
 		this.uuid =  UUID.randomUUID();
+		this.grade = grade;
 	}
 	
 	public AudioElement (Element xmlElement)  throws Exception
@@ -33,6 +36,7 @@ public abstract class AudioElement {
 			artist = xmlElement.getElementsByTagName("artist").item(0).getTextContent();
 			lengthInSeconds = Integer.parseInt(xmlElement.getElementsByTagName("length").item(0).getTextContent());
 			content = xmlElement.getElementsByTagName("content").item(0).getTextContent();
+			grade = xmlElement.getElementsByTagName("grade").item(0).getTextContent();
 			String uuid = null;
 			try {
 				uuid = xmlElement.getElementsByTagName("UUID").item(0).getTextContent();
@@ -64,8 +68,16 @@ public abstract class AudioElement {
 		return this.content;
 	}
 	
+	public String getGrade() {
+		return this.grade;
+	}
+	
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	
 	public String toString() {
-		return "Title = " + this.title + ", Artist = " + this.artist + ", Length = " + this.lengthInSeconds + ", Content = " + this.content;
+		return "Title = " + this.title + ", Artist = " + this.artist + ", Length = " + this.lengthInSeconds + ", Content = " + this.content + ", Grade = " + this.grade;
 	}
 
 	public void createXMLElement(Document document, Element parentElement)
@@ -89,6 +101,10 @@ public abstract class AudioElement {
 		Element contentElement = document.createElement("content");
         contentElement.appendChild(document.createTextNode(content));
         parentElement.appendChild(contentElement);
+        
+        Element gradeElement = document.createElement("grade");
+        gradeElement.appendChild(document.createTextNode(grade));
+        parentElement.appendChild(gradeElement);
 
 	}
 	

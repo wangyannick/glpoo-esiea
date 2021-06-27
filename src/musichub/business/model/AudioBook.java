@@ -7,12 +7,12 @@ public class AudioBook extends AudioElement {
 	private Category category;
 	
 	public AudioBook (String title, String artist, int lengthInSeconds, String uid, String content, String language, String category) {
-		super (title, artist, lengthInSeconds, uid, content);
+		super (title, artist, lengthInSeconds, uid, content, "");
 		this.setLanguage(language);
 		this.setCategory(category);
 	}
 	public AudioBook (String title, String artist, int lengthInSeconds, String content, String language, String category) {
-		super (title, artist, lengthInSeconds, content);
+		super (title, artist, lengthInSeconds, content, "");
 		this.setLanguage(language);
 		this.setCategory(category);
 	}

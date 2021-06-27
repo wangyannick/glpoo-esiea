@@ -61,6 +61,10 @@ public class MusicHub {
 	public void readElement(String elementTitle) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		simpleAudioPlayer.readAudioFile(audioElementController.readElement(elementTitle));
 	}
+	
+	public void rateElement(String elementTitle, String val) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		audioElementController.rateElement(elementTitle, val);
+	}
 
 	public void saveElements() {
 		audioElementController.saveElements();

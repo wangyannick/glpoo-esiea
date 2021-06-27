@@ -52,8 +52,25 @@ public class AudioElementController {
 		} catch(Exception ex) {
 			System.out.println("That song doesn't exist");
 			return("");
+		}	
+	}
+	
+	public void rateElement(String elementTitle, String val) {
+		AudioElement theElement = null;
+		int i = 0;
+		boolean found = false;
+		for (i = 0; i < elements.size(); i++) {
+			if (elements.get(i).getTitle().toLowerCase().equals(elementTitle.toLowerCase())) {
+				theElement = elements.get(i);
+				found = true;
+				break;
+			}
 		}
-		
+		try {
+			theElement.setGrade(val);
+		} catch(Exception ex) {
+			System.out.println("That song doesn't exist");
+		}	
 	}
 
 	public void addElement(AudioElement element) {
