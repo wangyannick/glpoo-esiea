@@ -47,10 +47,13 @@ public class Main {
 				// On rentre la musique qu'on veut jouer
 				System.out.println("Choose the music you want to play");
 				musicTitle = scan.nextLine();
+				SingletonFileLogger.getInstance().write(Level.INFO, "Trying to read music");
 				try {
 					theHub.readElement(musicTitle);
+					SingletonFileLogger.getInstance().write(Level.INFO, "Reading music " + musicTitle);
 					System.out.println("Would you like to rate the music you listened to ? y/n");
 					answer = scan.nextLine();
+					SingletonFileLogger.getInstance().write(Level.INFO, "Rating music");
 					if (answer.charAt(0) == 'y') {
 						try {
 							System.out.println("Give a grade from 1 to 5");
