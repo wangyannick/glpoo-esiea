@@ -6,17 +6,41 @@ public class AudioBook extends AudioElement {
 	private Language language;
 	private Category category;
 	
+	/**
+	 * constructor for AudioBook
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param uid
+	 * @param content
+	 * @param language
+	 * @param category
+	 */
 	public AudioBook (String title, String artist, int lengthInSeconds, String uid, String content, String language, String category) {
 		super (title, artist, lengthInSeconds, uid, content, "");
 		this.setLanguage(language);
 		this.setCategory(category);
 	}
+	/**
+	 * constructor for audioBook
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param content
+	 * @param language
+	 * @param category
+	 */
 	public AudioBook (String title, String artist, int lengthInSeconds, String content, String language, String category) {
 		super (title, artist, lengthInSeconds, content, "");
 		this.setLanguage(language);
 		this.setCategory(category);
 	}
 	
+	/**
+	 * constructor for audioBook
+	 * @param xmlElement
+	 * @throws Exception
+	 */
 	public AudioBook (Element xmlElement) throws Exception {
 		super(xmlElement);
 		try {
@@ -35,6 +59,10 @@ public class AudioBook extends AudioElement {
 		return this.category;
 	}
 	
+	/**
+	 * function to set the language
+	 * @param language
+	 */
 	public void setLanguage (String language) {	
 		switch (language.toLowerCase()) {
 			case "english":
@@ -57,6 +85,10 @@ public class AudioBook extends AudioElement {
 		}
 	}
 	
+	/**
+	 * function to set a category
+	 * @param category
+	 */
 	public void setCategory (String category) {	
 		switch (category.toLowerCase()) {
 			case "youth":
@@ -84,6 +116,9 @@ public class AudioBook extends AudioElement {
 	}
 	
 
+	/**
+	 * function to create a XML Element
+	 */
 	public void createXMLElement(Document document, Element parentElement) {
 		// audiobook element
         Element audioBook = document.createElement("audiobook");

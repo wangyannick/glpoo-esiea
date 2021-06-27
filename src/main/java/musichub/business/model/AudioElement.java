@@ -11,6 +11,15 @@ public abstract class AudioElement {
 	protected String	content;
 	protected String 	grade;
 	
+	/**
+	 * constructor for audioElement
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param id
+	 * @param content
+	 * @param grade
+	 */
 	public AudioElement (String title, String artist, int lengthInSeconds, String id, String content, String grade) {
 		this.title = title;
 		this.artist = artist;
@@ -20,6 +29,14 @@ public abstract class AudioElement {
 		this.grade = grade;
 	}
 
+	/**
+	 * constructor for audioElement
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param content
+	 * @param grade
+	 */
 	public AudioElement (String title, String artist, int lengthInSeconds, String content, String grade) {
 		this.title = title;
 		this.artist = artist;
@@ -29,6 +46,11 @@ public abstract class AudioElement {
 		this.grade = grade;
 	}
 	
+	/**
+	 * constructor for audioElement
+	 * @param xmlElement
+	 * @throws Exception
+	 */
 	public AudioElement (Element xmlElement)  throws Exception
 	{
 		try {
@@ -80,6 +102,11 @@ public abstract class AudioElement {
 		return "Title = " + this.title + ", Artist = " + this.artist + ", Length = " + this.lengthInSeconds + ", Content = " + this.content + ", Grade = " + this.grade;
 	}
 
+	/**
+	 * function to create an XML Element
+	 * @param document
+	 * @param parentElement
+	 */
 	public void createXMLElement(Document document, Element parentElement)
 	{
 		Element nameElement = document.createElement("title");
