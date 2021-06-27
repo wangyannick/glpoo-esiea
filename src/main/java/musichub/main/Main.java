@@ -160,8 +160,7 @@ public class Main {
 				int length = Integer.parseInt(scan.nextLine());
 				System.out.println("Song content: ");
 				String content = scan.nextLine();
-				String rate = "";
-				Song s = new Song(title, artist, length, content, genre, rate);
+				Song s = new Song(title, artist, length, content, genre);
 				theHub.addElement(s);
 				System.out.println("New element list: ");
 				Iterator<AudioElement> it = theHub.elements();
