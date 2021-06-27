@@ -12,6 +12,15 @@ public class Album {
 	private Date date;
 	private ArrayList<UUID> songsUIDs;
 
+	/**
+	 * constructor of album
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param id
+	 * @param date
+	 * @param songsUIDs
+	 */
 	public Album(String title, String artist, int lengthInSeconds, String id, String date, ArrayList<UUID> songsUIDs) {
 		this.title = title;
 		this.artist = artist;
@@ -26,6 +35,13 @@ public class Album {
 		this.songsUIDs = songsUIDs;
 	}
 
+	/**
+	 * constructor of album
+	 * @param title
+	 * @param artist
+	 * @param lengthInSeconds
+	 * @param date
+	 */
 	public Album(String title, String artist, int lengthInSeconds, String date) {
 		this.title = title;
 		this.artist = artist;
@@ -40,6 +56,11 @@ public class Album {
 		this.songsUIDs = new ArrayList<UUID>();
 	}
 
+	/**
+	 * constructor of album
+	 * @param xmlElement
+	 * @throws Exception
+	 */
 	public Album(Element xmlElement) throws Exception {
 		try {
 			this.title = xmlElement.getElementsByTagName("title").item(0).getTextContent();
@@ -105,6 +126,11 @@ public class Album {
 		return date;
 	}
 
+	/**
+	 * function to create an XML Element
+	 * @param document
+	 * @param parentElement
+	 */
 	public void createXMLElement(Document document, Element parentElement) {
 		Element albumElement = document.createElement("album");
 		parentElement.appendChild(albumElement);
