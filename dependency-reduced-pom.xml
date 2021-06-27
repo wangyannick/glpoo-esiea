@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>TestComparatorCircle</mainClass>
+                  <mainClass>main.java.musichub.main.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>

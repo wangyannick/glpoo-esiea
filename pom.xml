@@ -28,7 +28,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>TestComparatorCircle</mainClass>
+									<mainClass>main.java.musichub.main.Main</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
