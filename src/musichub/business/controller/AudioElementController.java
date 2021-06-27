@@ -47,7 +47,13 @@ public class AudioElementController {
 				break;
 			}
 		}
-		return theElement.getContent();
+		try {
+			return theElement.getContent();
+		} catch(Exception ex) {
+			System.out.println("That song doesn't exist");
+			return("");
+		}
+		
 	}
 
 	public void addElement(AudioElement element) {

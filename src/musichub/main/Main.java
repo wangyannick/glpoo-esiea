@@ -45,13 +45,13 @@ public class Main {
 					theHub.readElement(musicTitle);
 				} catch (UnsupportedAudioFileException e) {
 					// TODO Auto-generated catch block
-					System.out.println("Titre invalide" + e.getMessage());
+					System.out.println("Invalid Title" + e.getMessage());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Error! - " + e.getMessage());;
 				} catch (LineUnavailableException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					System.out.println("Error! - " + e.getMessage());
 				}
 
 				// une fois musique finie demander de la noter ici
