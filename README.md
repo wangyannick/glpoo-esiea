@@ -17,7 +17,7 @@ Le but du projet est de faire évoluer l’application de gestion de contenus mu
 - Github
 Lancer la commande suivante pour clone le répertoire : 
 ```
-https://github.com/wangyannick/glpoo-esiea.git
+git clone https://github.com/wangyannick/glpoo-esiea.git
 ```
 ## Principales fonctionnalités du projet
 
@@ -37,6 +37,7 @@ https://github.com/wangyannick/glpoo-esiea.git
 
 ## Screenshots
 
+<img width="488" alt="Capture d’écran 2021-06-27 à 19 59 04" src="https://user-images.githubusercontent.com/38128431/123554809-21ef8e00-d782-11eb-99ba-7b3e43f74de0.png">
 
 
 
