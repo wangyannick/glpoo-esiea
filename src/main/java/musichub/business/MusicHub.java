@@ -36,6 +36,12 @@ public class MusicHub {
 		simpleAudioPlayer.readAudioFile(filePath);
 	}
 
+	/**
+	 * function that calls getAlbumSongs and getAudioElements
+	 * @param albumTitle
+	 * @return
+	 * @throws NoAlbumFoundException
+	 */
 	public List<AudioElement> getAlbumSongs(String albumTitle) throws NoAlbumFoundException {
 		return albumView.getAlbumSongs(albumTitle, albumController.getAlbums(),
 				audioElementController.getAudioElements());
@@ -58,10 +64,25 @@ public class MusicHub {
 		return audioElementView.getAudiobooksTitlesSortedByAuthor(audioElementController.getAudioElements());
 	}
 	
+	/**
+	 * function that calls the function read an element
+	 * @param elementTitle
+	 * @throws UnsupportedAudioFileException
+	 * @throws IOException
+	 * @throws LineUnavailableException
+	 */
 	public void readElement(String elementTitle) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		simpleAudioPlayer.readAudioFile(audioElementController.readElement(elementTitle));
 	}
 	
+	/**
+	 * function to rate an element
+	 * @param elementTitle
+	 * @param val
+	 * @throws UnsupportedAudioFileException
+	 * @throws IOException
+	 * @throws LineUnavailableException
+	 */
 	public void rateElement(String elementTitle, String val) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		audioElementController.rateElement(elementTitle, val);
 	}
@@ -70,14 +91,25 @@ public class MusicHub {
 		audioElementController.saveElements();
 	}
 
+	/**
+	 * function so an user can save an album
+	 */
 	public void saveAlbums() {
 		albumController.saveAlbums();
 	}
 
+	/**
+	 * function to save a playlist
+	 */
 	public void savePlayLists() {
 		playlistController.savePlayLists();
 	}
 
+	/**
+	 * function to delete a playlist
+	 * @param plTitle
+	 * @throws NoPlayListFoundException
+	 */
 	public void deletePlayList(String plTitle) throws NoPlayListFoundException {
 		playlistController.deletePlayList(plTitle);
 	}
@@ -86,15 +118,30 @@ public class MusicHub {
 		return playlistController.playlists();
 	}
 
+	/**
+	 * function to add a playlist
+	 * @param pl
+	 */
 	public void addPlaylist(PlayList pl) {
 		playlistController.addPlaylist(pl);
 	}
 
+	/**
+	 * function to add an element to a playlist
+	 * @param elementTitle
+	 * @param playListTitle
+	 * @throws NoPlayListFoundException
+	 * @throws NoElementFoundException
+	 */
 	public void addElementToPlayList(String elementTitle, String playListTitle)
 			throws NoPlayListFoundException, NoElementFoundException {
 		playlistController.addElementToPlayList(elementTitle, playListTitle, audioElementController.getAudioElements());
 	}
 
+	/**
+	 * function to add an element
+	 * @param a
+	 */
 	public void addElement(AudioElement a) {
 		audioElementController.addElement(a);
 	}
@@ -103,11 +150,22 @@ public class MusicHub {
 		return albumController.albums();
 	}
 
+	/**
+	 * function to add an element to an Album
+	 * @param songTitle
+	 * @param titleAlbum
+	 * @throws NoAlbumFoundException
+	 * @throws NoElementFoundException
+	 */
 	public void addElementToAlbum(String songTitle, String titleAlbum)
 			throws NoAlbumFoundException, NoElementFoundException {
 		albumController.addElementToAlbum(songTitle, titleAlbum, audioElementController.getAudioElements());
 	}
 
+	/**
+	 * function to add an album
+	 * @param a
+	 */
 	public void addAlbum(Album a) {
 		albumController.addAlbum(a);
 	}
