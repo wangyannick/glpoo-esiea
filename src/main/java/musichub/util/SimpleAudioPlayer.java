@@ -7,6 +7,9 @@ import javax.sound.sampled.*;
 
 import javax.swing.*;
 
+import main.java.musichub.logger.Level;
+import main.java.musichub.logger.SingletonFileLogger;
+
 public class SimpleAudioPlayer {
 
 	public void readAudioFile(String filePath)throws UnsupportedAudioFileException, IOException, LineUnavailableException {
@@ -31,15 +34,19 @@ public class SimpleAudioPlayer {
 
 			switch (response) {
 			case ("P"):
+				SingletonFileLogger.getInstance().write(Level.INFO, "Playing music");
 				clip.start();
 				break;
 			case ("S"):
+				SingletonFileLogger.getInstance().write(Level.INFO, "Stopping music");
 				clip.stop();
 				break;
 			case ("R"):
+				SingletonFileLogger.getInstance().write(Level.INFO, "Restarting music");
 				clip.setMicrosecondPosition(0);
 				break;
 			case ("Q"):
+				SingletonFileLogger.getInstance().write(Level.INFO, "Closing music");
 				clip.close();
 				break;
 			default:

@@ -20,3 +20,5 @@
 [2021-06-27 17:20:28.543] - INFO - Starting the hub
 [2021-06-27 17:20:28.544] - INFO - Displayed commands lists.
 [2021-06-27 17:21:52.64] - INFO - Starting the hub
+[2021-06-27 17:35:22.205] - INFO - Starting the hub
+[2021-06-27 17:35:22.208] - INFO - Displayed commands lists.
