@@ -6,6 +6,9 @@ import musichub.business.model.AudioBook;
 import musichub.business.model.AudioElement;
 import musichub.business.model.PlayList;
 import musichub.business.model.Song;
+import musichub.logger.Level;
+import musichub.logger.SingletonConsoleLogger;
+import musichub.logger.SingletonFileLogger;
 
 import musichub.util.*;
 
@@ -31,10 +34,13 @@ public class Main {
 		if (choice.length() == 0)
 			System.exit(0);
 
+		SingletonFileLogger.getInstance().write(Level.INFO, "Starting the hub");
+
 		while (choice.charAt(0) != 'q') {
 			switch (choice.charAt(0)) {
 			case 'h':
 				printAvailableCommands();
+				SingletonFileLogger.getInstance().write(Level.INFO, "Displayed commands lists.");
 				choice = scan.nextLine();
 				break;
 			case 'r':
@@ -61,6 +67,7 @@ public class Main {
 			case 't':
 				// album titles, ordered by date
 				System.out.println(theHub.getAlbumsTitlesSortedByDate());
+				SingletonFileLogger.getInstance().write(Level.INFO, "Displayed album titles ordered by date.");
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
@@ -69,12 +76,18 @@ public class Main {
 				System.out.println(
 						"Songs of an album sorted by genre will be displayed; enter the album name, available albums are:");
 				System.out.println(theHub.getAlbumsTitlesSortedByDate());
-
+				SingletonFileLogger.getInstance().write(Level.INFO, "Displayed albums.");
 				albumTitle = scan.nextLine();
+				SingletonFileLogger.getInstance().write(Level.INFO, "Trying to display " + albumTitle);
 				try {
 					System.out.println(theHub.getAlbumSongsSortedByGenre(albumTitle));
+					SingletonFileLogger.getInstance().write(Level.INFO,
+							"Displayed " + albumTitle + " album sorted by Genre.");
 				} catch (NoAlbumFoundException ex) {
-					System.out.println("No album found with the requested title " + ex.getMessage());
+					SingletonFileLogger.getInstance().write(Level.ERROR,
+							"No album found with the requested title " + ex.getMessage());
+					SingletonConsoleLogger.getInstance().write(Level.ERROR,
+							"No album found with the requested title " + ex.getMessage());
 				}
 				printAvailableCommands();
 				choice = scan.nextLine();
@@ -83,12 +96,19 @@ public class Main {
 				// songs of an album
 				System.out.println("Songs of an album will be displayed; enter the album name, available albums are:");
 				System.out.println(theHub.getAlbumsTitlesSortedByDate());
+				SingletonFileLogger.getInstance().write(Level.INFO, "Displaying albums sorted by date.");
 
 				albumTitle = scan.nextLine();
 				try {
 					System.out.println(theHub.getAlbumSongs(albumTitle));
+					SingletonFileLogger.getInstance().write(Level.INFO, "Displaying song of " + albumTitle);
+
 				} catch (NoAlbumFoundException ex) {
 					System.out.println("No album found with the requested title " + ex.getMessage());
+					SingletonFileLogger.getInstance().write(Level.ERROR,
+							"No album found with the requested title " + ex.getMessage());
+					SingletonConsoleLogger.getInstance().write(Level.ERROR,
+							"No album found with the requested title " + ex.getMessage());
 				}
 				printAvailableCommands();
 				choice = scan.nextLine();
@@ -96,6 +116,7 @@ public class Main {
 			case 'u':
 				// audiobooks ordered by author
 				System.out.println(theHub.getAudiobooksTitlesSortedByAuthor());
+				SingletonFileLogger.getInstance().write(Level.INFO, "Displaying audiobooks ordered by author.");
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
@@ -118,6 +139,7 @@ public class Main {
 				Iterator<AudioElement> it = theHub.elements();
 				while (it.hasNext())
 					System.out.println(it.next().getTitle());
+				SingletonFileLogger.getInstance().write(Level.INFO, "Song " + title + " created.");
 				System.out.println("Song created!");
 				printAvailableCommands();
 				choice = scan.nextLine();
@@ -139,6 +161,7 @@ public class Main {
 				Iterator<Album> ita = theHub.albums();
 				while (ita.hasNext())
 					System.out.println(ita.next().getTitle());
+				SingletonFileLogger.getInstance().write(Level.INFO, "Album " + aTitle + " created.");
 				System.out.println("Album created!");
 				printAvailableCommands();
 				choice = scan.nextLine();
@@ -164,10 +187,14 @@ public class Main {
 				String titleAlbum = scan.nextLine();
 				try {
 					theHub.addElementToAlbum(songTitle, titleAlbum);
+					SingletonFileLogger.getInstance().write(Level.INFO,
+							"Added " + songTitle + " to " + titleAlbum + ".");
 				} catch (NoAlbumFoundException ex) {
-					System.out.println(ex.getMessage());
+					SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+					SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
 				} catch (NoElementFoundException ex) {
-					System.out.println(ex.getMessage());
+					SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+					SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
 				}
 				System.out.println("Song added to the album!");
 				printAvailableCommands();
@@ -190,6 +217,7 @@ public class Main {
 				String bLanguage = scan.nextLine();
 				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
 				theHub.addElement(b);
+				SingletonFileLogger.getInstance().write(Level.INFO, "Audiobook " + bTitle + " created.");
 				System.out.println("Audiobook created! New element list: ");
 				Iterator<AudioElement> itl = theHub.elements();
 				while (itl.hasNext())
@@ -210,6 +238,7 @@ public class Main {
 				String playListTitle = scan.nextLine();
 				PlayList pl = new PlayList(playListTitle);
 				theHub.addPlaylist(pl);
+				SingletonFileLogger.getInstance().write(Level.INFO, "Created playlist :" + playListTitle + ".");
 				System.out.println("Available elements: ");
 
 				Iterator<AudioElement> itael = theHub.elements();
@@ -220,18 +249,26 @@ public class Main {
 				while (choice.charAt(0) != 'n') {
 					System.out.println("Type the name of the audio element you wish to add or 'n' to exit:");
 					String elementTitle = scan.nextLine();
+					SingletonFileLogger.getInstance().write(Level.INFO,
+							"Trying to add " + elementTitle + " to " + playListTitle + ".");
+
 					try {
 						theHub.addElementToPlayList(elementTitle, playListTitle);
+						SingletonFileLogger.getInstance().write(Level.INFO,
+								"Added " + elementTitle + " to " + playListTitle + ".");
 					} catch (NoPlayListFoundException ex) {
-						System.out.println(ex.getMessage());
+						SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+						SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
 					} catch (NoElementFoundException ex) {
-						System.out.println(ex.getMessage());
+						SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+						SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
 					}
 
 					System.out.println("Type y to add a new one, n to end");
 					choice = scan.nextLine();
 				}
 				System.out.println("Playlist created!");
+				SingletonFileLogger.getInstance().write(Level.INFO, "Playlist " + playListTitle + " created.");
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
@@ -244,10 +281,13 @@ public class Main {
 					System.out.println(p.getTitle());
 				}
 				String plTitle = scan.nextLine();
+				SingletonFileLogger.getInstance().write(Level.INFO, "Trying to delete playlist :" + plTitle + ".");
 				try {
 					theHub.deletePlayList(plTitle);
+					SingletonFileLogger.getInstance().write(Level.INFO, "Playlist " + plTitle + " deleted.");
 				} catch (NoPlayListFoundException ex) {
-					System.out.println(ex.getMessage());
+					SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+					SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
 				}
 				System.out.println("Playlist deleted!");
 				printAvailableCommands();
@@ -259,6 +299,7 @@ public class Main {
 				theHub.saveAlbums();
 				theHub.savePlayLists();
 				System.out.println("Elements, albums and playlists saved!");
+				SingletonFileLogger.getInstance().write(Level.INFO, "Saved elements, albums, playlists.");
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
