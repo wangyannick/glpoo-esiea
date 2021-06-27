@@ -240,6 +240,7 @@ public class Main {
 					choice = scan.nextLine();
 				}
 				System.out.println("Playlist created!");
+				SingletonFileLogger.getInstance().write(Level.INFO, "Playlist " + playListTitle + " created.");
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
