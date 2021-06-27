@@ -10,7 +10,13 @@ import musichub.logger.Level;
 import musichub.logger.SingletonConsoleLogger;
 import musichub.logger.SingletonFileLogger;
 
+import musichub.util.*;
+
+import java.io.IOException;
 import java.util.*;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -23,6 +29,7 @@ public class Main {
 		String choice = scan.nextLine();
 
 		String albumTitle = null;
+		String musicTitle = null;
 
 		if (choice.length() == 0)
 			System.exit(0);
@@ -34,6 +41,27 @@ public class Main {
 			case 'h':
 				printAvailableCommands();
 				SingletonFileLogger.getInstance().write(Level.INFO, "Displayed commands lists.");
+				choice = scan.nextLine();
+				break;
+			case 'r':
+				//On rentre la musique qu'on veut jouer
+				System.out.println("Choose the music you want to play");
+				musicTitle = scan.nextLine();
+				try {
+					theHub.readElement(musicTitle);
+				} catch (UnsupportedAudioFileException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Invalid Title" + e.getMessage());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Error! - " + e.getMessage());;
+				} catch (LineUnavailableException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Error! - " + e.getMessage());
+				}
+
+				// une fois musique finie demander de la noter ici
+				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
 			case 't':
@@ -284,6 +312,7 @@ public class Main {
 	}
 
 	private static void printAvailableCommands() {
+		System.out.println("r: listen to a music");
 		System.out.println("t: display the album titles, ordered by date");
 		System.out.println("g: display songs of an album, ordered by genre");
 		System.out.println("d: display songs of an album");

@@ -1,6 +1,10 @@
 package musichub.business;
 
+import java.io.IOException;
 import java.util.*;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import musichub.business.controller.AlbumController;
 import musichub.business.controller.AudioElementController;
@@ -13,6 +17,7 @@ import musichub.business.model.Song;
 import musichub.business.view.AlbumView;
 import musichub.business.view.AudioElementView;
 import musichub.business.view.PlaylistView;
+import musichub.util.SimpleAudioPlayer;
 
 public class MusicHub {
 
@@ -24,6 +29,12 @@ public class MusicHub {
 
 	PlaylistController playlistController = new PlaylistController();
 	PlaylistView playlistView = new PlaylistView();
+	
+	SimpleAudioPlayer simpleAudioPlayer = new SimpleAudioPlayer();
+	
+	public void readAudio(String filePath) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		simpleAudioPlayer.readAudioFile(filePath);
+	}
 
 	public List<AudioElement> getAlbumSongs(String albumTitle) throws NoAlbumFoundException {
 		return albumView.getAlbumSongs(albumTitle, albumController.getAlbums(),
@@ -45,6 +56,10 @@ public class MusicHub {
 
 	public String getAudiobooksTitlesSortedByAuthor() {
 		return audioElementView.getAudiobooksTitlesSortedByAuthor(audioElementController.getAudioElements());
+	}
+	
+	public void readElement(String elementTitle) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		simpleAudioPlayer.readAudioFile(audioElementController.readElement(elementTitle));
 	}
 
 	public void saveElements() {

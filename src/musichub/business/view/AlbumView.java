@@ -36,7 +36,6 @@ public class AlbumView {
 				}
 			}
 		return songsInAlbum;
-
 	}
 
 	public String getAlbumsTitlesSortedByDate(List<Album> albums) {
