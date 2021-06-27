@@ -319,6 +319,36 @@ public class Main {
 				printAvailableCommands();
 				choice = scan.nextLine();
 				break;
+			case 'n':
+				// create a playlist with specific genre
+				System.out.println("Type the name of the playlist you wish to create:");
+				String playListTitleGenre = scan.nextLine();
+				System.out.println("Type song genre (jazz, classic, hiphop, rock, pop, rap):");
+				String genrePlaylist = scan.nextLine();
+
+				PlayList plGenre = new PlayList(playListTitleGenre);
+				theHub.addPlaylist(plGenre);
+
+				Iterator<AudioElement> itaelGenre = theHub.elements();
+				while (itaelGenre.hasNext()) {
+					AudioElement ae = itaelGenre.next();
+					if (ae instanceof Song) {
+						if (((Song) ae).getGenre().contains(genrePlaylist)) {
+							try {
+								theHub.addElementToPlayList(ae.getTitle(), playListTitleGenre);
+							} catch (NoPlayListFoundException | NoElementFoundException ex) {
+								SingletonFileLogger.getInstance().write(Level.ERROR, ex.getMessage());
+								SingletonConsoleLogger.getInstance().write(Level.ERROR, ex.getMessage());
+							}
+
+						}
+					}
+				}
+
+				System.out.println("Playlist created");
+				printAvailableCommands();
+				choice = scan.nextLine();
+				break;
 			case 's':
 				// save elements, albums, playlists
 				theHub.saveElements();
@@ -339,6 +369,7 @@ public class Main {
 
 	private static void printAvailableCommands() {
 		System.out.println("r: listen to a music");
+		System.out.println("n: create a playlist with a specific genre");
 		System.out.println("t: display the album titles, ordered by date");
 		System.out.println("g: display songs of an album, ordered by genre");
 		System.out.println("d: display songs of an album");
