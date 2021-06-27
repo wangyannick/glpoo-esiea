@@ -1,18 +1,18 @@
-package musichub.business;
+package main.java.musichub.business;
 
 import java.util.*;
 
-import musichub.business.controller.AlbumController;
-import musichub.business.controller.AudioElementController;
-import musichub.business.controller.PlaylistController;
-import musichub.business.model.Album;
-import musichub.business.model.AudioBook;
-import musichub.business.model.AudioElement;
-import musichub.business.model.PlayList;
-import musichub.business.model.Song;
-import musichub.business.view.AlbumView;
-import musichub.business.view.AudioElementView;
-import musichub.business.view.PlaylistView;
+import main.java.musichub.business.controller.AlbumController;
+import main.java.musichub.business.controller.AudioElementController;
+import main.java.musichub.business.controller.PlaylistController;
+import main.java.musichub.business.model.Album;
+import main.java.musichub.business.model.AudioBook;
+import main.java.musichub.business.model.AudioElement;
+import main.java.musichub.business.model.PlayList;
+import main.java.musichub.business.model.Song;
+import main.java.musichub.business.view.AlbumView;
+import main.java.musichub.business.view.AudioElementView;
+import main.java.musichub.business.view.PlaylistView;
 
 public class MusicHub {
 
