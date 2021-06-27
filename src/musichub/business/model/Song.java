@@ -7,12 +7,12 @@ public class Song extends AudioElement {
 	private Genre genre;
 	
 	public Song (String title, String artist, int length, String uid, String content, String genre) {
-		super (title, artist, length, uid, content);
+		super (title, artist, length, uid, content, "");
 		this.setGenre(genre);
 	}
 	
 	public Song (String title, String artist, int length, String content, String genre) {
-		super (title, artist, length, content);
+		super (title, artist, length, content, "");
 		this.setGenre(genre);
 	}
 	

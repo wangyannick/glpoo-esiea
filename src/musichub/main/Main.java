@@ -27,6 +27,8 @@ public class Main {
 
 		String albumTitle = null;
 		String musicTitle = null;
+		String answer = null;
+		String grade = null;
 
 		if (choice.length() == 0)
 			System.exit(0);
@@ -38,17 +40,41 @@ public class Main {
 				choice = scan.nextLine();
 				break;
 			case 'r':
-				//On rentre la musique qu'on veut jouer
+				// On rentre la musique qu'on veut jouer
 				System.out.println("Choose the music you want to play");
 				musicTitle = scan.nextLine();
 				try {
 					theHub.readElement(musicTitle);
+					System.out.println("Would you like to rate the music you listened to ? y/n");
+					answer = scan.nextLine();
+					if (answer.charAt(0) == 'y') {
+						try {
+							System.out.println("Give a grade from 1 to 5");
+							grade = scan.nextLine();
+							while (grade.charAt(0) != '1' && grade.charAt(0) != '2' && grade.charAt(0) != '3'
+									&& grade.charAt(0) != '4' && grade.charAt(0) != '5') {
+								System.out.println("Please type a valid grade from 1 to 5");
+								grade = scan.nextLine();
+							}
+							theHub.rateElement(musicTitle, grade);
+						} catch (UnsupportedAudioFileException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Error! - " + e.getMessage());
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Error! - " + e.getMessage());
+						} catch (LineUnavailableException e) {
+							// TODO Auto-generated catch block
+							System.out.println("Error! - " + e.getMessage());
+						}
+					}
 				} catch (UnsupportedAudioFileException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Invalid Title" + e.getMessage());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					System.out.println("Error! - " + e.getMessage());;
+					System.out.println("Error! - " + e.getMessage());
+					;
 				} catch (LineUnavailableException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Error! - " + e.getMessage());
@@ -112,7 +138,8 @@ public class Main {
 				int length = Integer.parseInt(scan.nextLine());
 				System.out.println("Song content: ");
 				String content = scan.nextLine();
-				Song s = new Song(title, artist, length, content, genre);
+				String rate = "";
+				Song s = new Song(title, artist, length, content, genre, rate);
 				theHub.addElement(s);
 				System.out.println("New element list: ");
 				Iterator<AudioElement> it = theHub.elements();
@@ -188,7 +215,8 @@ public class Main {
 				String bContent = scan.nextLine();
 				System.out.println("AudioBook language (french, english, italian, spanish, german)");
 				String bLanguage = scan.nextLine();
-				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory);
+				String bRate = "";
+				AudioBook b = new AudioBook(bTitle, bArtist, bLength, bContent, bLanguage, bCategory, bRate);
 				theHub.addElement(b);
 				System.out.println("Audiobook created! New element list: ");
 				Iterator<AudioElement> itl = theHub.elements();
