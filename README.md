@@ -32,7 +32,7 @@ git clone https://github.com/wangyannick/glpoo-esiea.git
 - Afficher les playlists
 - Afficher les musiques d'un album
 - Afficher les musiques d'une playlist
-- Créer une playlist par genre
+- Créer une playlist selon son genre
 - Écouter une musique
 - Noter une musique
 - Supprimer une musique
