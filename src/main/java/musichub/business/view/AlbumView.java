@@ -5,10 +5,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-import main.java.musichub.business.NoAlbumFoundException;
 import main.java.musichub.business.model.Album;
 import main.java.musichub.business.model.AudioElement;
 import main.java.musichub.business.model.Song;
+import main.java.musichub.exception.NoAlbumFoundException;
 import main.java.musichub.util.SortByDate;
 import main.java.musichub.util.SortByGenre;
 

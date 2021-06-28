@@ -1,4 +1,4 @@
-package main.java.musichub.business;
+package main.java.musichub.business.controller;
 
 import java.io.IOException;
 import java.util.*;
@@ -6,17 +6,16 @@ import java.util.*;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import main.java.musichub.business.controller.AlbumController;
-import main.java.musichub.business.controller.AudioElementController;
-import main.java.musichub.business.controller.PlaylistController;
 import main.java.musichub.business.model.Album;
-import main.java.musichub.business.model.AudioBook;
 import main.java.musichub.business.model.AudioElement;
 import main.java.musichub.business.model.PlayList;
 import main.java.musichub.business.model.Song;
 import main.java.musichub.business.view.AlbumView;
 import main.java.musichub.business.view.AudioElementView;
 import main.java.musichub.business.view.PlaylistView;
+import main.java.musichub.exception.NoAlbumFoundException;
+import main.java.musichub.exception.NoElementFoundException;
+import main.java.musichub.exception.NoPlayListFoundException;
 import main.java.musichub.util.SimpleAudioPlayer;
 
 public class MusicHub {

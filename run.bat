@@ -1,1 +1,1 @@
-mvn compile && mvn package && cd target && java -jar "glpoo-esiea-0.0.1-SNAPSHOT.jar"
+mvn compile && mvn package && move target\glpoo-esiea-0.0.1-SNAPSHOT.jar glpoo-esiea-0.0.1-SNAPSHOT.jar && java -jar "glpoo-esiea-0.0.1-SNAPSHOT.jar"
