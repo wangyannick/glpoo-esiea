@@ -7,7 +7,7 @@
  Ugo MUGARUKA
  Fateh Bara
 
-# About the project
+# A propos du projet
 
 Le but du projet est de faire évoluer l’application de gestion de contenus musicaux jMusicHub développée sur le premier semestre dans le module POO - Java.
 
