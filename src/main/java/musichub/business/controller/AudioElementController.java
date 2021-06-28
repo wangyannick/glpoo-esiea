@@ -9,11 +9,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import main.java.musichub.business.NoElementFoundException;
 import main.java.musichub.business.model.Album;
 import main.java.musichub.business.model.AudioBook;
 import main.java.musichub.business.model.AudioElement;
 import main.java.musichub.business.model.Song;
+import main.java.musichub.exception.NoElementFoundException;
 import main.java.musichub.util.XMLHandler;
 
 public class AudioElementController {

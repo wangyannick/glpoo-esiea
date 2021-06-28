@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import main.java.musichub.business.NoAlbumFoundException;
-import main.java.musichub.business.NoElementFoundException;
 import main.java.musichub.business.controller.AudioElementController;
 import main.java.musichub.business.view.AudioElementView;
+import main.java.musichub.exception.NoAlbumFoundException;
+import main.java.musichub.exception.NoElementFoundException;
 
 class AudioElementTest {
 

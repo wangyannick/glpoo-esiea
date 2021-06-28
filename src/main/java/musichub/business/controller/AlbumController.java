@@ -9,10 +9,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import main.java.musichub.business.NoAlbumFoundException;
-import main.java.musichub.business.NoElementFoundException;
 import main.java.musichub.business.model.Album;
 import main.java.musichub.business.model.AudioElement;
+import main.java.musichub.exception.NoAlbumFoundException;
+import main.java.musichub.exception.NoElementFoundException;
 import main.java.musichub.util.XMLHandler;
 
 public class AlbumController {
