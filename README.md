@@ -15,9 +15,15 @@ Le but du projet est de faire évoluer l’application de gestion de contenus mu
 
 - Eclipse
 - Github
+- Maven
 Lancer la commande suivante pour clone le répertoire : 
 ```
 git clone https://github.com/wangyannick/glpoo-esiea.git
+```
+
+Si vous avez Maven et que vous êtes sur windows, allez dans le répertoire du projet : 
+```
+run.bat
 ```
 ## CI
 
