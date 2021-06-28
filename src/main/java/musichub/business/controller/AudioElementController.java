@@ -9,6 +9,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import main.java.musichub.business.NoElementFoundException;
 import main.java.musichub.business.model.Album;
 import main.java.musichub.business.model.AudioBook;
 import main.java.musichub.business.model.AudioElement;
@@ -35,13 +36,15 @@ public class AudioElementController {
 	public Iterator<AudioElement> elements() {
 		return elements.listIterator();
 	}
-	
+
 	/**
 	 * function to read an element
+	 * 
 	 * @param elementTitle
 	 * @return
+	 * @throws NoElementFoundException
 	 */
-	public String readElement(String elementTitle) {
+	public String readElement(String elementTitle) throws NoElementFoundException {
 		AudioElement theElement = null;
 		int i = 0;
 		boolean found = false;
@@ -52,20 +55,22 @@ public class AudioElementController {
 				break;
 			}
 		}
-		try {
+
+		if (found) {
 			return theElement.getContent();
-		} catch(Exception ex) {
-			System.out.println("That song doesn't exist");
-			return("");
-		}	
+		} else {
+			throw new NoElementFoundException("Element " + elementTitle + " not found!");
+		}
 	}
-	
+
 	/**
 	 * function that allows the user to rate the element
+	 * 
 	 * @param elementTitle
 	 * @param val
+	 * @throws NoElementFoundException
 	 */
-	public void rateElement(String elementTitle, String val) {
+	public void rateElement(String elementTitle, String val) throws NoElementFoundException {
 		AudioElement theElement = null;
 		int i = 0;
 		boolean found = false;
@@ -76,15 +81,16 @@ public class AudioElementController {
 				break;
 			}
 		}
-		try {
+		if (found) {
 			theElement.setGrade(val);
-		} catch(Exception ex) {
-			System.out.println("That song doesn't exist");
-		}	
+		} else {
+			throw new NoElementFoundException("Element " + elementTitle + " not found!");
+		}
 	}
 
 	/**
 	 * function to add an element
+	 * 
 	 * @param element
 	 */
 	public void addElement(AudioElement element) {

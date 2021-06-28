@@ -70,8 +70,9 @@ public class MusicHub {
 	 * @throws UnsupportedAudioFileException
 	 * @throws IOException
 	 * @throws LineUnavailableException
+	 * @throws NoElementFoundException 
 	 */
-	public void readElement(String elementTitle) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+	public void readElement(String elementTitle) throws UnsupportedAudioFileException, IOException, LineUnavailableException, NoElementFoundException {
 		simpleAudioPlayer.readAudioFile(audioElementController.readElement(elementTitle));
 	}
 	
@@ -82,8 +83,9 @@ public class MusicHub {
 	 * @throws UnsupportedAudioFileException
 	 * @throws IOException
 	 * @throws LineUnavailableException
+	 * @throws NoElementFoundException 
 	 */
-	public void rateElement(String elementTitle, String val) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+	public void rateElement(String elementTitle, String val) throws UnsupportedAudioFileException, IOException, LineUnavailableException, NoElementFoundException {
 		audioElementController.rateElement(elementTitle, val);
 	}
 

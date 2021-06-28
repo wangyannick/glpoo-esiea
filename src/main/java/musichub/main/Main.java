@@ -85,6 +85,8 @@ public class Main {
 				} catch (LineUnavailableException e) {
 					// TODO Auto-generated catch block
 					System.out.println("Error! - " + e.getMessage());
+				} catch (NoElementFoundException e) {
+					System.out.println("Error! - " + e.getMessage());
 				}
 
 				// une fois musique finie demander de la noter ici
