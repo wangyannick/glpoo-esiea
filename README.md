@@ -19,6 +19,10 @@ Lancer la commande suivante pour clone le répertoire :
 ```
 git clone https://github.com/wangyannick/glpoo-esiea.git
 ```
+## CI
+
+- Github Actions Maven
+
 ## Principales fonctionnalités du projet
 
 - Créer une musique
