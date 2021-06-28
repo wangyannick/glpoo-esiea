@@ -51,6 +51,7 @@ git clone https://github.com/wangyannick/glpoo-esiea.git
 <img width="580" alt="Capture d’écran 2021-06-27 à 20 26 41" src="https://user-images.githubusercontent.com/38128431/123555438-fd95b080-d785-11eb-9248-69b23eafaf86.png">
 
 ## Ecouter puis noter une musique
+Dans notre projet, nous avons téléchargé une musique en format .wav pour l'écouter il suffit juste de taper "fernando" lorsqu'on doit taper le nom de la musique
 ![fsyuydts](https://user-images.githubusercontent.com/78790631/123692117-b9261580-d856-11eb-8f4d-23b3b50a2f3c.PNG)
 ![ghggfh](https://user-images.githubusercontent.com/78790631/123692162-c7743180-d856-11eb-9574-664ab4732284.PNG)
 La modification a bien eu lieu
